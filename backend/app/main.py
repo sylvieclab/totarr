@@ -7,7 +7,7 @@ from loguru import logger
 import os
 
 from app.core.config import settings
-from app.api.routes import health, plex, library, scanning
+from app.api.routes import health, plex, library, scanning, dashboard
 
 # Configure logger - create logs directory if it doesn't exist
 os.makedirs("logs", exist_ok=True)
@@ -41,6 +41,7 @@ app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(plex.router, prefix="/api/plex", tags=["plex"])
 app.include_router(library.router, prefix="/api/library", tags=["library"])
 app.include_router(scanning.router, prefix="/api/scan", tags=["scanning"])
+app.include_router(dashboard.router, prefix="/api", tags=["dashboard"])
 
 
 @app.on_event("startup")

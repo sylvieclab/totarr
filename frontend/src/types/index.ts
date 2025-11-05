@@ -89,3 +89,39 @@ export interface ApiResponse<T> {
   error?: string;
   status: number;
 }
+
+export interface DashboardStats {
+  total_libraries: number;
+  total_items: number;
+  by_type: {
+    movie: number;
+    show: number;
+    artist: number;
+    photo: number;
+    other: number;
+  };
+  last_scan: string | null;
+  recent_scans: number;
+}
+
+export interface RecentItem {
+  title: string;
+  type: string;
+  library: string;
+  added_at: string | null;
+  year?: number;
+  rating?: number;
+  thumb?: string | null;
+}
+
+export interface RecentItemsResponse {
+  items: RecentItem[];
+}
+
+export interface ServerStatus {
+  connected: boolean;
+  server_name: string | null;
+  version: string | null;
+  response_time_ms: number | null;
+  error?: string;
+}

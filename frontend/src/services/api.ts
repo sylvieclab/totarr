@@ -8,6 +8,9 @@ import {
   PlexMediaItem,
   LibraryStats,
   ScanHistoryResponse,
+  DashboardStats,
+  RecentItemsResponse,
+  ServerStatus,
 } from '../types';
 
 class ApiClient {
@@ -114,6 +117,22 @@ class ApiClient {
     completed_at?: string;
   }> {
     const response = await this.client.post(`/scan/libraries/${libraryKey}/scan`);
+    return response.data;
+  }
+
+  // Dashboard
+  async getDashboardStats(): Promise<DashboardStats> {
+    const response = await this.client.get<DashboardStats>('/dashboard/stats');
+    return response.data;
+  }
+
+  async getRecentItems(): Promise<RecentItemsResponse> {
+    const response = await this.client.get<RecentItemsResponse>('/dashboard/recent');
+    return response.data;
+  }
+
+  async getServerStatus(): Promise<ServerStatus> {
+    const response = await this.client.get<ServerStatus>('/dashboard/server-status');
     return response.data;
   }
 }
