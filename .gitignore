@@ -1,6 +1,10 @@
 # Claude Documentation Directory - Internal use only
 Claude_Docs/
 
+# Quick reference files - Internal use only
+QUICK_START.md
+QUICK_REFERENCE.md
+
 # Database files - CRITICAL: Contains Plex authentication tokens!
 *.db
 *.sqlite
